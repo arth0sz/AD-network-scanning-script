@@ -10,7 +10,7 @@ clear='\033[0m'
 
 echo -e "${green}==========================${clear}"
 
-# Check if the CIDR notation is provided as a command line argument
+# Check if a command-line argument is provided
 if [ -z "$1" ]; then
     echo -e "${red}No command-line argument provided.${clear}"
     echo -e "${cyan}Please provide a valid network range in CIDR notation.${clear}"
@@ -36,7 +36,7 @@ fi
 
 echo -e "${cyan}Starting scan of the provided network range.${clear}"
 
-# Use nmap to scan for most likely open ports in a networked environment and extract IP addresses
+# Use Nmap to scan for most likely open ports in a networked environment and extract IP addresses
 # This is done with an Active Directory environment in mind
 # Add for example any or all of these ports to fit other cases - 21,22,25,53,80,88,139,443,445
 open_ports=$(sudo nmap -Pn -sT -p 88,445 --open -oG - "$network_range" 2>/dev/null | awk '/88\/open/ || /445\/open/ {print $2}')
