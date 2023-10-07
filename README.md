@@ -9,6 +9,10 @@ The results are saved for each IP in the three major formats for Nmap along with
 
 You can uncomment the portion indicated in the script in case you don't want all the output crowding your terminal.
 
+You can also adjust the ports it looks for to fit other environments.
+
+The script is also made with a proxy in mind. For my testing, I was pivoting with ligolo-ng.
+
 ### Usage:
 
 `./network-scanning.sh 172.16.7.0/24`
